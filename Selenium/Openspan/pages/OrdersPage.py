@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 
@@ -17,14 +18,10 @@ class OrdersPage:
         self.verify_credit_limit = (By.ID, 'verify_credit_limit')
 
     def click_order_menu_button(self):
-        order_page = self.driver.find_element(*self.order_menu_btn)
-        print("Page is opened, Button is present: ", order_page.is_displayed())
-        order_page.click()
+        self.driver.find_element(*self.order_menu_btn).click()
 
     def click_next_button(self):
-        next_btn = self.driver.find_element(*self.next_btn)
-        print("Page is opened, Next Button is present: ", next_btn.is_displayed())
-        next_btn.click()
+        self.driver.find_element(*self.next_btn).click()
 
     # STEP 2
     def placeOrderStep2(self, first_name, last_name, street_address, zip_code, area_code, phone):
@@ -36,9 +33,7 @@ class OrdersPage:
         primary_phone_input = "//*[@id='bprimary_phone']"
         ship_to_billing_address_btn = "//*[contains(text(), 'Ship to')]"
 
-        first_name_input = self.driver.find_element(By.XPATH, first_name_input)
-        print("Page is opened, Input is present: ", first_name_input.is_displayed())
-        first_name_input.send_keys(first_name)
+        self.driver.find_element(By.XPATH, first_name_input).send_keys(first_name)
         self.driver.find_element(By.XPATH, last_name_input).send_keys(last_name)
         self.driver.find_element(By.XPATH, street_address_input).send_keys(street_address)
         self.driver.find_element(By.XPATH, zip_code_input).send_keys(zip_code)
@@ -47,14 +42,10 @@ class OrdersPage:
         self.driver.find_element(By.XPATH, ship_to_billing_address_btn).click()
 
     def click_step_2_next_button(self):
-        step_2_next_button = self.driver.find_element(*self.step_2_next_button)
-        print("Next Button is present: ", step_2_next_button.is_displayed())
-        step_2_next_button.click()
+        self.driver.find_element(*self.step_2_next_button).click()
 
     def click_step_2_previous_button(self):
-        step_2_previous_button = self.driver.find_element(*self.step_2_previous_button)
-        print("Previous Button is present: ", step_2_previous_button.is_displayed())
-        step_2_previous_button.click()
+        self.driver.find_element(*self.step_2_previous_button).click()
 
     # STEP 3
     def click_credit_card_button(self):
@@ -74,16 +65,18 @@ class OrdersPage:
         self.driver.find_element(*self.order_number).send_keys(order_number)
 
     def click_step_3_submit_button(self):
-        step_3_next_button = self.driver.find_element(*self.step_3_submit_button)
-        print("Submit Button is present: ", step_3_next_button.is_displayed())
-        step_3_next_button.click()
+        self.driver.find_element(*self.step_3_submit_button)
 
     def click_step_3_previous_button(self):
-        step_3_next_button = self.driver.find_element(*self.step_3_previous_button)
-        print("Previous Button is present: ", step_3_next_button.is_displayed())
-        step_3_next_button.click()
+        self.driver.find_element(*self.step_3_previous_button).click()
 
     def click_verify_credit_limit(self):
         self.driver.find_element(*self.verify_credit_limit).click()
         Alert(self.driver).accept()
 
+    def is_page_opened(self):
+        try:
+            self.driver.find_element(*self.next_btn)
+            return True
+        except NoSuchElementException:
+            return False, print("Orders page not opened")

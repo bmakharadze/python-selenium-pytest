@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
@@ -7,7 +8,6 @@ class ProductsPage:
         self.products_page_btn = (By.XPATH, '//*[@id="products_menu"]/a')
         self.beverages_btn = (By.XPATH, '//*[@id="my-beverages-table"]/tbody/tr[2]/th/a')
         self.seasoning_btn = (By.XPATH, '//*[@id="my-seasonings-table"]/tbody/tr[2]/th/a')
-        '//*[@id="shopping_seasoning_products"]/tbody/tr[1]/td[1]/a[1]'
 
     def click_products_page_button(self):
         self.driver.find_element(*self.products_page_btn).click()
@@ -20,3 +20,10 @@ class ProductsPage:
 
     def click_product_button(self, index):
         self.driver.find_element(By.XPATH, f"//*[contains(text(), '{index}')]").click()
+
+    def is_page_opened(self):
+        try:
+            self.driver.find_element(*self.beverages_btn)
+            return True
+        except NoSuchElementException:
+            return False, print("Orders page not opened")

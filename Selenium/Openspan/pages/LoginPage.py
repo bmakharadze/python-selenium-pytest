@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -18,3 +19,10 @@ class LoginPage:
         login = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.login_button))
         assert login.is_displayed(), "Login button is not displayed."
         login.click()
+
+    def is_page_opened(self):
+        try:
+            self.driver.find_element(*self.username_input)
+            return True
+        except NoSuchElementException:
+            return False, print("Login page not opened")

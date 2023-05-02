@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
@@ -17,3 +18,10 @@ class ProductPage:
     def get_price(self):
         element = self.driver.find_element(*self.get_price).text
         print(element)
+
+    def is_page_opened(self):
+        try:
+            self.driver.find_element(*self.order)
+            return True
+        except NoSuchElementException:
+            return False, print("Product page not opened")
