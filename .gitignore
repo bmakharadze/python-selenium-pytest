@@ -23,6 +23,7 @@ wheels/
 share/python-wheels/
 *.egg-info/
 Selenium/Openspan/.pytest_cache
+.idea
 .installed.cfg
 *.egg
 MANIFEST
