@@ -2,11 +2,13 @@ from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 
+from Selenium.Openspan.base.BasePage import BasePage
 
-class OrdersPage:
+
+class OrdersPage(BasePage):
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
-        self.order_menu_btn = (By.XPATH, '//*[@id="orders_menu"]/a')
         self.next_btn = (By.XPATH, '//*[@id="next1_button"]')
         self.step_2_next_button = (By.XPATH, '//*[@id="next2_button"]')
         self.step_2_previous_button = (By.XPATH, '"//*[@name="previous"]"')
@@ -16,9 +18,6 @@ class OrdersPage:
         self.step_3_submit_button = (By.XPATH, '//*[@id="submit_button"]')
         self.step_3_previous_button = (By.XPATH, '//*[@id="progressbar_container"]/fieldset[3]/input[1]')
         self.verify_credit_limit = (By.ID, 'verify_credit_limit')
-
-    def click_order_menu_button(self):
-        self.driver.find_element(*self.order_menu_btn).click()
 
     def click_next_button(self):
         self.driver.find_element(*self.next_btn).click()

@@ -23,6 +23,7 @@ wheels/
 share/python-wheels/
 *.egg-info/
 Selenium/Openspan/.pytest_cache
+Selenium/Openspan/geckodriver.log
 .idea
 .installed.cfg
 *.egg

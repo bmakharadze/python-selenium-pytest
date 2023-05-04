@@ -1,11 +1,12 @@
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
+from Selenium.Openspan.base.BasePage import BasePage
+from Selenium.Openspan.pages.HomePage import HomePage
 
 
-class LoginPage:
+class LoginPage(BasePage):
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
         self.username_input = (By.XPATH, '//*[@id="user_name"]')
         self.password_input = (By.XPATH, '//*[@id="user_pass"]')
@@ -16,13 +17,9 @@ class LoginPage:
         self.driver.find_element(*self.password_input).send_keys(password)
 
     def click_login_button(self):
-        login = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.login_button))
-        assert login.is_displayed(), "Login button is not displayed."
-        login.click()
+        self.wait_for_element_to_be_visible(self.login_button).click()
+        home_page = HomePage(self.driver)
+        return home_page
 
-    def is_page_opened(self):
-        try:
-            self.driver.find_element(*self.username_input)
-            return True
-        except NoSuchElementException:
-            return False, print("Login page not opened")
+    def is_login_page_opened(self):
+        return super().is_page_opened(self.username_input)
