@@ -1,7 +1,10 @@
 import pytest
 from selenium import webdriver
+from ddt import data, unpack
 import time
 import logging
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 from enums.ProductList import ProductList
 from enums.ProductType import ProductType
 from enums.CreditCard import CreditCard
@@ -21,9 +24,9 @@ def driver(request):
     logging.info("Setting up driver...")
     browser = request.param
     if browser == "chrome":
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
     elif browser == "firefox":
-        driver = webdriver.Firefox()
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     elif browser == "edge":
         driver = webdriver.Edge()
     elif browser == "safari":
@@ -74,13 +77,13 @@ def test_add_products_to_cart_from_products_page(driver):
 
 # Requires product to be in cart
 @pytest.mark.parametrize("driver", ["chrome"], indirect=True)
-def test_order_products(driver, first_name, last_name, middle_name, credit_card_number, security_code, bill_me):
+def test_order_products(driver):
     home_page = HomePage(driver)
 
     orders_page = home_page.click_order_menu_button()
     assert orders_page.is_page_opened(), "Orders page is not opened."
     orders_page.click_next_button()
-    orders_page.placeOrderStep2(first_name, last_name, middle_name, credit_card_number, security_code, bill_me)
+    orders_page.placeOrderStep2("john", "doe", "34223", "5111", "3234", "532555")
     orders_page.click_step_2_next_button()
     orders_page.placeOrderStep3(CreditCard.VISA, "4232", "342894239", ExpirationMonth.JULY, ExpirationYear.YEAR_2016)
     orders_page.click_step_3_submit_button()

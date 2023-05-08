@@ -23,6 +23,7 @@ class OrdersPage(BasePage):
         self.driver.find_element(*self.next_btn).click()
 
     # STEP 2
+
     def placeOrderStep2(self, first_name, last_name, street_address, zip_code, area_code, phone):
         first_name_input = "//input[@id='bfirst_name']"
         last_name_input = "//input[@name='blast_name']"

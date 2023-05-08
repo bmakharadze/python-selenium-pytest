@@ -3,20 +3,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
 
+logging.basicConfig(level=logging.INFO)
+
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
-        self.logger = logging.getLogger(__name__)
 
     def is_page_opened(self, locator):
         try:
             element = self.wait.until(EC.presence_of_element_located(locator))
-            self.logger.info("Page is opened.")
+            logging.info("Page is opened.")
             return element
         except TimeoutException:
-            self.logger.info("Page is not opened.")
+            logging.info("Page is not opened.")
 
     def wait_for_element_to_be_clickable(self, locator):
         element = self.wait.until(EC.element_to_be_clickable(locator))
@@ -25,3 +26,21 @@ class BasePage:
     def wait_for_element_to_be_visible(self, locator):
         element = self.wait.until(EC.visibility_of_element_located(locator))
         return element
+
+    def do_click(self, by_locator):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+
+    def do_send_keys(self, by_locator, text):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
+
+    def get_element_text(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        return element.text
+
+    def is_visible(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        return bool(element)
+
+    def get_title(self, title):
+        WebDriverWait(self.driver, 10).until(EC.title_is(title))
+        return self.driver.title

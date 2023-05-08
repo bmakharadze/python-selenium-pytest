@@ -1,25 +1,27 @@
 from selenium.webdriver.common.by import By
 
 from Selenium.Openspan.base.BasePage import BasePage
+from Selenium.Openspan.enums.TestData import TestData
 from Selenium.Openspan.pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):
+    USERNAME_INPUT = (By.XPATH, '//*[@id="user_name"]')
+    PASSWORD_INPUT = (By.XPATH, '//*[@id="user_pass"]')
+    LOGIN_BUTTON = (By.XPATH, '//*[@id="login_button"]')
+
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
-        self.username_input = (By.XPATH, '//*[@id="user_name"]')
-        self.password_input = (By.XPATH, '//*[@id="user_pass"]')
-        self.login_button = (By.XPATH, '//*[@id="login_button"]')
+        self.driver.get(TestData.BASE_URL)
 
     def login(self, username, password):
-        self.driver.find_element(*self.username_input).send_keys(username)
-        self.driver.find_element(*self.password_input).send_keys(password)
+        self.do_send_keys(self.USERNAME_INPUT, username)
+        self.do_send_keys(self.PASSWORD_INPUT, password)
 
     def click_login_button(self):
-        self.wait_for_element_to_be_visible(self.login_button).click()
+        self.do_click(self.LOGIN_BUTTON)
         home_page = HomePage(self.driver)
         return home_page
 
     def is_login_page_opened(self):
-        return super().is_page_opened(self.username_input)
+        return self.is_visible(self.USERNAME_INPUT)
