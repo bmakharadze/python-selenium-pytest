@@ -39,7 +39,7 @@ class TestOpenspan:
         home_page = HomePage(init_driver)
 
         orders_page = home_page.click_order_menu_button()
-        assert orders_page.is_page_opened()
+        assert orders_page.is_orders_page_opened()
         orders_page.click_next_button()
         orders_page.placeOrderStep2("john", "doe", "34223", "5111", "3234", "532555")
         orders_page.click_step_2_next_button()
@@ -52,7 +52,7 @@ class TestOpenspan:
         home_page = HomePage(init_driver)
 
         orders_page = home_page.click_order_menu_button()
-        assert orders_page.is_page_opened()
+        assert orders_page.is_orders_page_opened()
         orders_page.click_next_button()
         orders_page.placeOrderStep2(*order_details[:6])
         orders_page.click_step_2_next_button()

@@ -1,4 +1,4 @@
-from selenium.common import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 
@@ -6,21 +6,21 @@ from Selenium.Openspan.base.BasePage import BasePage
 
 
 class OrdersPage(BasePage):
+    NEXT_BTN = (By.XPATH, '//*[@id="next1_button"]')
+    STEP_2_NEXT_BUTTON = (By.XPATH, '//*[@id="next2_button"]')
+    STEP_2_PREVIOUS_BUTTON = (By.XPATH, '//*[@name="previous"]')
+    CREDIT_CARD = (By.XPATH, '//*[@id="credit_card"]')
+    BILL_ME = (By.XPATH, '//*[@id="bill_me"]')
+    ORDER_NUMBER = (By.XPATH, '//*[@id="purchase_order_number"]')
+    STEP_3_SUBMIT_BUTTON = (By.XPATH, '//*[@id="submit_button"]')
+    STEP_3_PREVIOUS_BUTTON = (By.XPATH, '//*[@id="progressbar_container"]/fieldset[3]/input[1]')
+    VERIFY_CREDIT_LIMIT = (By.ID, 'verify_credit_limit')
+
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
-        self.next_btn = (By.XPATH, '//*[@id="next1_button"]')
-        self.step_2_next_button = (By.XPATH, '//*[@id="next2_button"]')
-        self.step_2_previous_button = (By.XPATH, '"//*[@name="previous"]"')
-        self.credit_card = (By.XPATH, '//*[@id="credit_card"]')
-        self.bill_me = (By.XPATH, '//*[@id="bill_me"]')
-        self.order_number = (By.XPATH, '//*[@id="purchase_order_number"]')
-        self.step_3_submit_button = (By.XPATH, '//*[@id="submit_button"]')
-        self.step_3_previous_button = (By.XPATH, '//*[@id="progressbar_container"]/fieldset[3]/input[1]')
-        self.verify_credit_limit = (By.ID, 'verify_credit_limit')
 
     def click_next_button(self):
-        self.driver.find_element(*self.next_btn).click()
+        self.driver.find_element(*self.NEXT_BTN).click()
 
     # STEP 2
 
@@ -42,17 +42,17 @@ class OrdersPage(BasePage):
         self.driver.find_element(By.XPATH, ship_to_billing_address_btn).click()
 
     def click_step_2_next_button(self):
-        self.driver.find_element(*self.step_2_next_button).click()
+        self.driver.find_element(*self.STEP_2_NEXT_BUTTON).click()
 
     def click_step_2_previous_button(self):
-        self.driver.find_element(*self.step_2_previous_button).click()
+        self.driver.find_element(*self.STEP_2_PREVIOUS_BUTTON).click()
 
     # STEP 3
     def click_credit_card_button(self):
-        self.driver.find_element(*self.credit_card).click()
+        self.driver.find_element(*self.CREDIT_CARD).click()
 
     def click_bill_me_button(self):
-        self.driver.find_element(*self.bill_me).click()
+        self.driver.find_element(*self.BILL_ME).click()
 
     def placeOrderStep3(self, card_type, security_code, card_number, expiration_month, expiration_year):
         self.driver.find_element(By.ID, "card_type").send_keys(card_type)
@@ -62,21 +62,17 @@ class OrdersPage(BasePage):
         self.driver.find_element(By.ID, "expiry_year").send_keys(expiration_year)
 
     def purchase_order_number_input(self, order_number):
-        self.driver.find_element(*self.order_number).send_keys(order_number)
+        self.driver.find_element(*self.ORDER_NUMBER).send_keys(order_number)
 
     def click_step_3_submit_button(self):
-        self.driver.find_element(*self.step_3_submit_button)
+        self.driver.find_element(*self.STEP_3_SUBMIT_BUTTON).click()
 
     def click_step_3_previous_button(self):
-        self.driver.find_element(*self.step_3_previous_button).click()
+        self.driver.find_element(*self.STEP_2_PREVIOUS_BUTTON).click()
 
     def click_verify_credit_limit(self):
-        self.driver.find_element(*self.verify_credit_limit).click()
+        self.driver.find_element(*self.VERIFY_CREDIT_LIMIT).click()
         Alert(self.driver).accept()
 
-    def is_page_opened(self):
-        try:
-            self.driver.find_element(*self.next_btn)
-            return True
-        except NoSuchElementException:
-            return False, print("Orders page not opened")
+    def is_orders_page_opened(self):
+        return super().is_page_opened(self.NEXT_BTN)
