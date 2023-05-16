@@ -1,6 +1,7 @@
 import math
 import random
-import sys
+# import sys
+# from replit import clear
 
 # years = input("Number of years: ")
 # weeks = int(years) * 52
@@ -700,4 +701,229 @@ import sys
 # s = "some string"
 # if s != "":                 # Comparing two strings
 #     print('s != ""')
+#
+# available_parts = {
+#     "1": "computer",
+#     "2": "monitor",
+#     "3": "keyboard",
+#     "4": "mouse",
+#     "5": "hdmi cable",
+#     "6": "dvd drive",
+# }
+#
+# price_quantity = {
+#     "computer": {"price": 500, "quantity": 10},
+#     "monitor": {"price": 200, "quantity": 8},
+#     "keyboard": {"price": 500, "quantity": 5},
+#     "mouse": {"price": 10, "quantity": 0},
+#     "hdmi cable": {"price": 20, "quantity": 7},
+#     "dvd drive": {"price": 50, "quantity": 5},
+# }
+#
+# current_choice = None
+# total_price = 0
+# while current_choice != "0":
+#     if current_choice in available_parts:
+#         chosen_part = available_parts[current_choice]
+#         if price_quantity[chosen_part]["quantity"] > 0:
+#             print(f"Adding {chosen_part}")
+#             price_quantity[chosen_part]["quantity"] -= 1
+#             total_price += price_quantity[chosen_part]["price"]
+#         else:
+#             print(f"{chosen_part} is out of stock!")
+#
+#     else:
+#         print("Please add options from the list")
+#         for key, value in available_parts.items():
+#             print(f"{key}: {value}")
+#         print("0: to finish")
+#
+#     current_choice = input("> ")
+#
+#
+# print(f"Total price: {total_price}")
+#
+# import pyfiglet
+#
+# print(pyfiglet.figlet_format("BLIND AUCTION"))
 
+# logo = """
+# ██████╗ ██╗     ██╗███╗   ██╗██████╗      █████╗ ██╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+# ██╔══██╗██║     ██║████╗  ██║██╔══██╗    ██╔══██╗██║   ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+# ██████╔╝██║     ██║██╔██╗ ██║██║  ██║    ███████║██║   ██║██║        ██║   ██║██║   ██║██╔██╗ ██║
+# ██╔══██╗██║     ██║██║╚██╗██║██║  ██║    ██╔══██║██║   ██║██║        ██║   ██║██║   ██║██║╚██╗██║
+# ██████╔╝███████╗██║██║ ╚████║██████╔╝    ██║  ██║╚██████╔╝╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+# ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝╚═════╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+# """
+#
+#
+# def find_higest_amount(p_bid_record):
+#     highest_bid = 0
+#     highest_bidder = ""
+#     for key, value in p_bid_record.items():
+#         if value > highest_bid:
+#             highest_bid = value
+#             highest_bidder = key
+#     print(f"The winner is {highest_bidder} with a bid of ${highest_bid}")
+#
+#
+# print(logo)
+# bids = {}
+# bidding_finished = False
+# while not bidding_finished:
+#     name = input("What is your name?: ")
+#     amount = int(input("What is your bid amount?: $"))
+#     bids[name] = amount
+#     another = input("Are there any other bidder?(Y/N)")
+#     if another == "N":
+#         bidding_finished = True
+#         find_higest_amount(bids)
+#     elif another == "Y":
+#         clear()
+
+# my_tuple = (10, 40, 80, 90)
+#
+# result = my_tuple[0]+my_tuple[1]+my_tuple[2]+my_tuple[3]
+# a, b, c, d = my_tuple
+#
+# print(result)
+# print(f"{a+b+c+d}")
+
+# def even_index_items(my_tuple):
+#     result_list = []
+#     for index, value in enumerate(my_tuple):
+#         if index % 2 == 0:
+#             result_list.append(value)
+#     result_tuple = tuple(result_list)
+#     return result_tuple
+#
+#
+# my_tuple = ("a", "b", "c", "d", "e", "f", "g")
+# print(even_index_items(my_tuple))
+
+
+# my_tuple = (1, 2, 3, 4, 5, 6, 7)
+#
+#
+# def search_tuple(p_tuple, p_item):
+#     for index, value in enumerate(p_tuple):
+#         if value == p_item:
+#             return index
+#     return "Item does not exist"
+#
+#
+# print(search_tuple(my_tuple, 5))
+
+
+# def most_frequent(p_tuple):
+#     max_count = 0
+#     item = p_tuple[0]
+#     for value in p_tuple:
+#         current_item_count = p_tuple.count(value)
+#         if current_item_count > max_count:
+#             max_count = current_item_count
+#             item = value
+#     return item, max_count
+#
+#
+# my_tuple = ("a", "b", "c", "d", "e", "a", "c", "e", "b", "e", "c", "a", "f", "e", "r")
+# print(most_frequent(my_tuple))
+
+
+# clubs = (("FC Barcelona", "Spain", 1899,
+#             [
+#                 (3, "Pique"),
+#                 (5, "Busquets"),
+#                 (7, "Dembele"),
+#             ]
+#          ),
+#          ("Real Madrid CF", "Spain", 1902,
+#             [
+#                 (7, "Hazard"),
+#                 (9, "Benzema"),
+#                 (10, "Modric"),
+#             ]
+#          ),
+#          ("Manchester United FC", "England", 1878,
+#             [
+#                 (6, "Pogba"),
+#                 (7, "Ronaldo"),
+#                 (14, "Lingard"),
+#             ]
+#          ),
+#          ("Arsenal FC", "England", 1886,
+#             [
+#                 (7, "Lacazette"),
+#                 (14, "Aubameyang"),
+#                 (16, "Holding"),
+#             ]
+#          ),
+#          )
+#
+#
+# Lacazette = clubs[3][3][0][1]
+# print(Lacazette)
+# year = clubs[2][2]
+# print(year)
+# number = clubs[3][3][0][0]
+# print(number)
+# benzema = clubs[1][3][1]
+# print(benzema)
+
+
+# def order_words(p_text):
+#     words = p_text.split()
+#     nested_list = list()
+#     for word in words:
+#         nested_list.append((len(word), word))
+#         print(nested_list)
+#
+#
+# order_words("Python is my favorite programming language")
+
+
+music = [
+            ("Green Day",
+                        [
+                            (1, "Somewhere Now"),
+                            (2,	"Bang Bang"),
+                            (3, "Revolution Radio"),
+                            (4, "Say Goodbye"),
+                            (5,	"Outlaws"),
+                        ]
+            ),
+            ("Metallica",
+                        [
+                            (1, "Battery"),
+                            (2,	"Master of Puppets"),
+                            (3,	"The Thing That Should Not Be"),
+                            (4,	"Welcome Home (Sanitarium)"),
+                        ]
+            ),
+            ("U2",
+                        [
+                            (1,	"The Miracle"),
+                            (2,	"Every Breaking Wave"),
+                            (3,	"California"),
+                            (4,	"Song for Someone"),
+                            (5,	"Iris (Hold Me Close)"),
+                        ]
+            ),
+        ]
+
+
+def print_playlist():
+    for artist_index, t_song in enumerate(music, 1):
+        artist, songs = t_song
+        for song_num, song in songs:
+            print(f"{artist_index}:{song_num} {artist} - {song}")
+
+
+while True:
+    print_playlist()
+    current_play = input("\nSelect a song to play using number:(1:1) ")
+    print(f"\n{music[int(current_play[0]) - 1][0]} - {music[int(current_play[0]) - 1][1][int(current_play[2]) - 1][1]} playing now....")
+    change = input("\nPress C to change song or any letter to quit APP: ")
+    if change == "C":
+        continue
+    break
