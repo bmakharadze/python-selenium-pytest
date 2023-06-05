@@ -1,5 +1,8 @@
 import math
 import random
+import sys
+import time
+
 # import sys
 # from replit import clear
 
@@ -881,49 +884,593 @@ import random
 #
 # order_words("Python is my favorite programming language")
 
+#
+# music = [
+#             ("Green Day",
+#                         [
+#                             (1, "Somewhere Now"),
+#                             (2,	"Bang Bang"),
+#                             (3, "Revolution Radio"),
+#                             (4, "Say Goodbye"),
+#                             (5,	"Outlaws"),
+#                         ]
+#             ),
+#             ("Metallica",
+#                         [
+#                             (1, "Battery"),
+#                             (2,	"Master of Puppets"),
+#                             (3,	"The Thing That Should Not Be"),
+#                             (4,	"Welcome Home (Sanitarium)"),
+#                         ]
+#             ),
+#             ("U2",
+#                         [
+#                             (1,	"The Miracle"),
+#                             (2,	"Every Breaking Wave"),
+#                             (3,	"California"),
+#                             (4,	"Song for Someone"),
+#                             (5,	"Iris (Hold Me Close)"),
+#                         ]
+#             ),
+#         ]
+#
+#
+# def print_playlist():
+#     for artist_index, t_song in enumerate(music, 1):
+#         artist, songs = t_song
+#         for song_num, song in songs:
+#             print(f"{artist_index}:{song_num} {artist} - {song}")
+#
+#
+# while True:
+#     print_playlist()
+#     current_play = input("\nSelect a song to play using number:(1:1) ")
+#     print(f"\n{music[int(current_play[0]) - 1][0]} - {music[int(current_play[0]) - 1][1][int(current_play[2]) -
+#     1][1]} playing now....")
+#     change = input("\nPress C to change song or any letter to quit APP: ")
+#     if change == "C":
+#         continue
+#     break
 
-music = [
-            ("Green Day",
-                        [
-                            (1, "Somewhere Now"),
-                            (2,	"Bang Bang"),
-                            (3, "Revolution Radio"),
-                            (4, "Say Goodbye"),
-                            (5,	"Outlaws"),
-                        ]
-            ),
-            ("Metallica",
-                        [
-                            (1, "Battery"),
-                            (2,	"Master of Puppets"),
-                            (3,	"The Thing That Should Not Be"),
-                            (4,	"Welcome Home (Sanitarium)"),
-                        ]
-            ),
-            ("U2",
-                        [
-                            (1,	"The Miracle"),
-                            (2,	"Every Breaking Wave"),
-                            (3,	"California"),
-                            (4,	"Song for Someone"),
-                            (5,	"Iris (Hold Me Close)"),
-                        ]
-            ),
-        ]
+# def adding_set(list):
+#     lists = set()
+#     for item in list:
+#         lists.add(item)
+#     return lists
+#
+#
+# my_list = [3, 4, 5, 1, 1, 3, 4, 9, 8]
+# print(adding_set(my_list))
 
 
-def print_playlist():
-    for artist_index, t_song in enumerate(music, 1):
-        artist, songs = t_song
-        for song_num, song in songs:
-            print(f"{artist_index}:{song_num} {artist} - {song}")
+# my_list = ["apple", "apple", "orange", "grape", "grape", "orange", "apple"]
+#
+# my_set = set(my_list)
+# my_list = list(my_set)
+# print(my_list)
+
+#
+# set1 = {10,20,30,40,50}
+# set2 = {60,20,50,70}
+#
+# both_sets = set1.union(set2)
+# print(both_sets)
 
 
-while True:
-    print_playlist()
-    current_play = input("\nSelect a song to play using number:(1:1) ")
-    print(f"\n{music[int(current_play[0]) - 1][0]} - {music[int(current_play[0]) - 1][1][int(current_play[2]) - 1][1]} playing now....")
-    change = input("\nPress C to change song or any letter to quit APP: ")
-    if change == "C":
-        continue
-    break
+# def convert_ls(list):
+#     lists = set()
+#     for item in list:
+#         lists = lists.union(item)
+#     return lists
+#
+#
+# list_of_sets = [
+#     {10,20,30,40,50},
+#     {"apple", "orange","limon","pear"},
+#     {"London", "Berlin", "Paris"},
+#     {"Python", "Java", "Swift"},
+#     {10, "ten", "20", 20}
+# ]
+# print(convert_ls(list_of_sets))
+
+# def divisible_by_3and4(number):
+#     d3 = set(range(0, number, 3))
+#     d4 = set(range(0, number, 4))
+#     result = d3.intersection(d4)
+#     return print(result)
+#
+#
+# divisible_by_3and4(100)
+#
+# while True:
+#     print("Enter 5 different numbers from 1 to 69, with spaces between \neach number. (For example: 5 17 23 42 50)")
+#     response = input("> ")
+#
+#     numbers = response.split()
+#     # Check that the player entered 5 things
+#     if len(numbers) != 5:
+#         print("Please enter 5 numbers, separated by spaces.")
+#         continue
+#     # Convert the strings into integers
+#     try:
+#         for i in range(5):
+#             numbers[i] = int(numbers[i])
+#     except ValueError:
+#         print("Please enter numbers, like 1,10 or 35")
+#         continue
+#     # Check that the numbers are between 1 and 69
+#     between_1_69 = True
+#     for item in numbers:
+#         if not (1 <= item <= 69):
+#             print("The numbers must be between 1 and 69")
+#             between_1_69 = False
+#             break
+#     if not between_1_69:
+#         continue
+#     # Check that the numbers are unique
+#     if len(set(numbers)) != 5:
+#         print("You must enter 5 different numbers")
+#         continue
+#     break
+#
+# # Step 2 - Ask the player to select the powerball between 1 to 26
+# while True:
+#     print("Enter the powerball number from 1 to 26.")
+#     response = input('> ')
+#     try:
+#         powerball = int(response)
+#     except ValueError:
+#         print("Please enter a number, like 1, 10 or 35")
+#         continue
+#
+#     if not (1 <= powerball <= 26):
+#         print("The powerball number must be between 1 and 26")
+#         continue
+#     break
+#
+# # Step 3 - Enter the number of times you want to play
+# while True:
+#     print("How many times do you want to play (Max: 1000000)? ")
+#     reponse = input('> ')
+#     #  Convert the strings into integers
+#     try:
+#         numPlays = int(reponse)
+#     except ValueError:
+#         print("Please enter a number, like 1, 10 or 35")
+#         continue
+#     #  Check that the number is between 1 and 1000000
+#     if not (1 <= numPlays <= 1000000):
+#         print("You can play between 1 and 1000000 times.")
+#         continue
+#     break
+#
+# # Step 4 - Run the simulation
+# price = '$' + str(2 * numPlays)
+# print(f"It costs {price} to play {numPlays} times, but dont \nworry. I'm sure you will win it all back.")
+# input("Press Enter to start...")
+# possibleNumbers = list(range(1, 70))
+# for i in range(numPlays):
+#     # Come up with lottery numbers
+#     random.shuffle(possibleNumbers)
+#     winningNumbers = possibleNumbers[0:5]
+#     winningPowerball = random.randint(1, 26)
+#     # Display winning numbers
+#     print("The winning numbers are: ", end="")
+#     allWinningNumbers = ""
+#     for num in winningNumbers:
+#         allWinningNumbers += str(num) + ' '
+#     allWinningNumbers += "and " + str(winningPowerball)
+#     print(allWinningNumbers, end="")
+#     #  Check for winner
+#     if (set(numbers) == set(winningNumbers) and powerball == winningPowerball):
+#         print()
+#         print("You have won the powerball Lottery! Congratulations.")
+#         break
+#     else:
+#         print(" You Lost.")
+# print(f"You have wasted {price}")
+# print("Thanks for playing")
+
+
+# import bext
+#
+# tile_types = (0, 1, 2, 3, 4, 5)
+# colors = {0: "red", 1: "green", 2: "blue", 3: "yellow", 4: "cyan", 5: "purple"}
+#
+# board_width = 20
+# board_height = 12
+# moves_per_game = 20
+# block = chr(9608)
+#
+#
+# def get_new_board():
+#     board = {}
+#     for x in range(board_width):
+#         for y in range(board_height):
+#             board[(x, y)] = random.choice(tile_types)
+#
+#     for i in range(board_width * board_height):
+#         x = random.randint(0, board_width - 2)
+#         y = random.randint(0, board_height - 1)
+#         board[(x+1, y)] = board[(x, y)]
+#
+#     return board
+#
+#
+# def display_board(board):
+#     for y in range(board_height):
+#         for x in range(board_width):
+#             bext.fg(colors[board[(x, y)]])
+#             print(block, end="")
+#             if (x + 1) % board_width == 0:
+#                 print(end="")
+#         print()
+#
+#
+# def ask_for_player_move():
+#     """Let the player select a color to paint upper left tile"""
+#     while True:
+#         bext.fg('white')
+#         print("Choose one of ", end="")
+#         bext.fg('red')
+#         print("(R)ed ", end="")
+#         bext.fg('green')
+#         print("(G)reen ", end="")
+#         bext.fg('blue')
+#         print("(B)lue ", end="")
+#         bext.fg('yellow')
+#         print("(Y)ellow ", end="")
+#         bext.fg('cyan')
+#         print("(C)yan ", end="")
+#         bext.fg('purple')
+#         print("(P)purple ", end="")
+#         bext.fg('white')
+#         print("or QUIT:")
+#         response = input("> ").upper()
+#         if response == "QUIT":
+#             print("Thanks for playing!")
+#             sys.exit()
+#         result = {'R':0, 'G': 1, 'B':2, 'Y':3, 'C':4, 'P':5}
+#         return result[response]
+#
+#
+# def change_tile(tile_color, board, x, y, color_to_change=None):
+#     if x == 0 and y == 0:
+#         color_to_change = board[(x, y)]
+#         if tile_color == color_to_change:
+#             return
+#     board[(x, y)] = tile_color
+#
+#     if x > 0 and board[(x - 1, y)] == color_to_change:
+#         # change left tile's color
+#         change_tile(tile_color, board, x - 1, y, color_to_change)
+#     if y > 0 and board[(x, y - 1)] == color_to_change:
+#         # change bottom tile's color
+#         change_tile(tile_color, board, x, y - 1, color_to_change)
+#     if x < board_width - 1 and board[(x + 1, y)] == color_to_change:
+#         # change right tile's color
+#         change_tile(tile_color, board, x + 1, y, color_to_change)
+#     if y < board_height - 1 and board[(x, y + 1)] == color_to_change:
+#         # change top tile's color
+#         change_tile(tile_color, board, x, y + 1, color_to_change)
+#
+#
+# def has_won(board):
+#     tile = board[(0, 0)]
+#     for x in range(board_width):
+#         for y in range(board_height):
+#             if board[(x, y)] != tile:
+#                 return False
+#     return True
+#
+#
+# print("Welcome to Flooder Game!")
+# moves_left = moves_per_game
+# new_board = get_new_board()
+#
+# while True:
+#     display_board(new_board)
+#     print("Moves left:", moves_left)
+#     player_move = ask_for_player_move()
+#     change_tile(player_move, new_board, 0, 0)
+#     moves_left -= 1
+#     if has_won(new_board):
+#         display_board(new_board)
+#         print("You have won!")
+#         break
+#     elif moves_left == 0:
+#         display_board(new_board)
+#         print("You have run out of moves!")
+#         break
+
+
+# while True:
+#     number = input("Enter a number: ")
+#     sum_of_digits = 0
+#
+#     try:
+#         for digit in number:
+#             sum_of_digits += int(digit)
+#     except TypeError:
+#         print("Value is not numberic")
+#     else:
+#         print("Sum of digits: ", sum_of_digits)
+#     finally:
+#         break
+
+#
+# def is_phone_number(phone):
+#     if len(phone) != 12:
+#         return False
+#     for i in range(0, 3):
+#         if not phone[i].isdecimal():
+#             return False
+#     if phone[3] != "-":
+#         return False
+#     for i in range(4, 7):
+#         if not phone[i].isdecimal():
+#             return False
+#     if phone[7] != "-":
+#         return False
+#     for i in range(8, 12):
+#         if not phone[i].isdecimal():
+#             return False
+#     return True
+#
+#
+# print(is_phone_number("2s3-532-4325"))
+# print(is_phone_number("213-532-4325"))
+
+
+import re
+#
+#
+# def find_three_con(p_text):
+#     mo = re.search('\d\d\d', p_text)
+#
+#     if mo is None:
+#         return 'Not found'
+#     else:
+#         return mo.group()
+#
+#
+# text = "My phone number is: 234-456-8765"
+# print(find_three_con(text))
+
+
+# text = "We are testing mathematics 123"
+# phone_num = re.compile(r"(\d\d\d)-(\d\d\d-\d\d\d)")
+#
+# mor = phone_num.search("My phone number: 555-532-553")
+# mo = re.search('test', text)
+#
+# print(mo)
+# print(mo.group())
+# print(mor.group(0))
+#
+#
+# def text_match(text):
+#     regex_pattern = re.compile(r'((l|L)ove(rs)?)')
+#     mo = regex_pattern.findall(text)
+#     count = len(mo)
+#     return count
+#
+#
+# text = '''Lovers in love
+# Lovers in love
+# Love, love, love, love, love
+# Love, love, love, love, love
+# Love, love, love, love, love
+# Love, love, love, love, love
+# Lovers loving love just like these lovers are loving love in love
+# Lovers loving love just like these lovers are loving love in love'''
+#
+# print(text_match(text))
+
+
+import os
+
+#
+# def display_cwd():
+#     cwd = os.getcwd()
+#     print(f"Current working directory: {cwd}")
+#
+#
+# def up_one_directory_level():
+#     os.chdir("../")
+#
+#
+# def display_entries_in_directory(directory):
+#     entries = os.scandir(directory)
+#     for entry in entries:
+#         print(entry.name)
+#
+#
+# display_cwd()
+# up_one_directory_level()
+# up_one_directory_level()
+# display_cwd()
+# display_entries_in_directory("PythonProjects")
+
+
+import pathlib
+import turtle
+
+# entries = os.scandir(".")
+# total = 0
+# for entry in entries:
+#     if entry.is_file():
+#         print(entry.name)
+#         total += 1
+# print(total)
+#
+#
+# def display_tree():
+#     dictionary = pathlib.Path.cwd()
+#     print(f"+ {dictionary}")
+#     entries = sorted(dictionary.rglob("*"))
+#     for entry in entries:
+#         depth = len(entry.relative_to(dictionary).parts)
+#         spacer = '    ' * depth
+#         print(f"{spacer}+ {entry.name}")
+#
+#
+# display_tree()
+#
+# file = open("read.txt")
+# print(file.read())
+
+# with open("read.txt", mode="r") as file:
+#     line = file.readline()
+#     while line != '':
+#         print(line, end = '')
+#         line = file.readline()
+
+#
+# def number_of_lines_file():
+#     file_name = input("Enter the file name: ")
+#     try:
+#         file = open(file_name)
+#     except FileNotFoundError:
+#         print("Please enter correct file: ")
+#         exit()
+#     word = input("enter the word: ")
+#     line_count = 0
+#     for line in file:
+#         line = line.rstrip()
+#         if line.startswith(word):
+#             line_count += 1
+#     print(f"There are {line_count} {word} in {file_name}")
+#
+#
+# number_of_lines_file()
+
+# with open('read.txt') as file:
+#     content = file.read()
+#     print(content[:100])
+
+
+# def number_of_characters(path):
+#     with open(path) as file:
+#         for index, row in enumerate(file, start=1):
+#             print(index, len(row))
+#
+#
+# number_of_characters("read.txt")
+
+# with open('write.txt', 'w') as file:
+#     for i in range(6):
+#         content = f"{i}\n"
+#         file.write(content)
+#
+#
+# with open('write.txt', 'w') as file:
+#     print("hi")
+#
+
+
+# from openpyxl import load_workbook
+# from openpyxl.workbook import Workbook
+# from openpyxl.styles import Font, Color
+
+#
+#
+# workbook = load_workbook("worldcities.xlsx")
+# sheet = workbook.active
+# cell = sheet.cell(row=3, column=2)
+# print(cell.value)
+# for col in sheet.iter_cols(min_row=1, max_row=10, min_col=1, max_col=10, values_only=True):
+#     print(col)
+
+# for col in list(sheet.columns)[1]:
+#     print(col.value)
+
+# reviews = {}
+# for row in sheet.iter_cols(min_row=1, max_row=10, min_col=1, max_col=10, values_only=True):
+#     print(row)
+#     review_id = row[0]
+#     review = {
+#         "city": row[1],
+#         "country": row[5]
+#
+#     }
+#     reviews[review_id] = review
+# print(reviews)
+
+#
+# new_workbook = Workbook()
+# sheet = new_workbook.active
+# red_text = Font(color="00ff0000", size=15, bold=True)
+# sheet['A1'] = "name"
+# sheet['B1'] = "surname"
+# sheet['A1'].font = red_text
+# sheet['B1'].font = red_text
+# sheet['A4'] = "6"
+# sheet['B4'] = "5"
+# sheet['C4'] = "=Sum(A4+B4)"
+# new_workbook.save("newworkbook.xlsx")
+
+
+# import pyautogui
+
+
+# pyautogui.moveTo(400, 400, 1)
+# pyautogui.moveTo(600, 400, 1)
+# pyautogui.moveTo(600, 600, 1)
+# pyautogui.moveTo(400, 600, 1)
+# # pyautogui.moveTo(400, 400, 1)
+#
+# time.sleep(3)Í
+# pyautogui.drag(100, 0, duration=0.5, button='left')
+# pyautogui.drag(0, 100, duration=0.5, button='left')
+
+# pyautogui.screenshot("hea.png")
+
+# pyautogui.hotkey('ctrl', 'alt', 'shift', 's')
+
+
+from turtle import Turtle, Screen
+
+
+def random_color():
+    r = random.randint(0, 255)/ 255
+    g = random.randint(0, 255)/ 255
+    b = random.randint(0, 255)/ 255
+    return r, g, b
+
+
+new_turtle = Turtle()
+screen = Screen()
+new_turtle.pensize(40)
+# new_turtle.pencolor(random_color())
+
+# new_turtle.goto(100, 100)
+# new_turtle.left(120)  # < ^
+# new_turtle.forward(65)
+# new_turtle.left(90)  # < ⌄
+# new_turtle.forward(75)
+# new_turtle.right(60)  # < ^
+# new_turtle.forward(75)
+# new_turtle.left(90)  # < ⌄
+# new_turtle.forward(65)
+# new_turtle.left(75)
+# new_turtle.home()
+# new_turtle.begin_fill()
+# new_turtle.circle(140)
+new_turtle.speed(15)
+new_turtle.pensize(40)
+border_x = 300
+border_y = 300
+
+directions = [0, 90, 180, 270]
+for _ in range(100000):
+    new_turtle.color(random_color())
+    new_turtle.forward(40)
+    new_turtle.setheading(random.choice(directions))
+
+    x, y = new_turtle.position()
+    if abs(x) > border_x or abs(y) > border_y:
+        new_turtle.undo()
+        new_turtle.setheading(new_turtle.heading() + 180)
+
+screen.mainloop()
