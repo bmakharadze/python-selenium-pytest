@@ -5,7 +5,7 @@ import requests
 def get_quote():
     category = 'happiness'
     api_url = 'https://api.api-ninjas.com/v1/quotes?category={}'.format(category)
-    response = requests.get(api_url, headers={'X-Api-Key': '0H882fFH6xjpapteI9nCrg==6EV5OtG7zk8Jv7rH'})
+    response = requests.get(api_url, headers={'X-Api-Key': 'urapi'})
     if response.status_code == requests.codes.ok:
         quote = response.json()[0]['quote']
         author = response.json()[0]['author']
@@ -14,7 +14,11 @@ def get_quote():
     else:
         quote_label.config(text="Error: " + str(response.status_code), fg="#FF0000")
 
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> refs/remotes/origin/main
 window = tk.Tk()
 window.title("Quote App")
 window.geometry("936x720")
@@ -28,9 +32,16 @@ quote_label.pack(pady=10)
 author_label = tk.Label(window, text="", font=("Arial", 12, "italic"), bg="#FDF5E6", fg="#555555")
 author_label.pack(pady=5)
 
+<<<<<<< HEAD
 
 joke_button = tk.Button(window, text="Get Random Joke", highlightthickness=1, command=get_quote)
 joke_button.pack(pady=10)
 
+=======
+
+quote_button = tk.Button(window, text="Get Quote", font=("Arial", 14), bg="#FDF5E6", fg="#333333", relief=tk.FLAT, command=get_quote)
+quote_button.pack(pady=10)
+
+>>>>>>> refs/remotes/origin/main
 
 window.mainloop()
