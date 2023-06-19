@@ -1,7 +1,7 @@
-from Selenium.Openspan.enums.CreditCard import CreditCard
-from Selenium.Openspan.enums.ExpirationMonth import ExpirationMonth
-from Selenium.Openspan.enums.ExpirationYear import ExpirationYear
-from Selenium.Openspan.enums.TestData import TestData
+from enums.CreditCard import CreditCard
+from enums.ExpirationMonth import ExpirationMonth
+from enums.ExpirationYear import ExpirationYear
+from enums.TestData import TestData
 from enums.ProductList import ProductList
 from enums.ProductType import ProductType
 from pages.HomePage import HomePage
@@ -62,4 +62,3 @@ class TestOpenspan:
         orders_page.purchase_order_number_input(order_details[6])
         orders_page.click_verify_credit_limit()
         orders_page.click_step_3_submit_button()
-

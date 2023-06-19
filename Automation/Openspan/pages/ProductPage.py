@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from Selenium.Openspan.base.BasePage import BasePage
+from Automation.Openspan.base.BasePage import BasePage
 
 
 class ProductPage(BasePage):

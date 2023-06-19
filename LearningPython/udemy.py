@@ -1428,20 +1428,20 @@ import turtle
 
 # pyautogui.hotkey('ctrl', 'alt', 'shift', 's')
 
-
-from turtle import Turtle, Screen
-
-
-def random_color():
-    r = random.randint(0, 255)/ 255
-    g = random.randint(0, 255)/ 255
-    b = random.randint(0, 255)/ 255
-    return r, g, b
-
-
-new_turtle = Turtle()
-screen = Screen()
-new_turtle.pensize(40)
+#
+# from turtle import Turtle, Screen
+#
+#
+# def random_color():
+#     r = random.randint(0, 255)/ 255
+#     g = random.randint(0, 255)/ 255
+#     b = random.randint(0, 255)/ 255
+#     return r, g, b
+#
+#
+# new_turtle = Turtle()
+# screen = Screen()
+# new_turtle.pensize(40)
 # new_turtle.pencolor(random_color())
 
 # new_turtle.goto(100, 100)
@@ -1457,20 +1457,78 @@ new_turtle.pensize(40)
 # new_turtle.home()
 # new_turtle.begin_fill()
 # new_turtle.circle(140)
-new_turtle.speed(15)
-new_turtle.pensize(40)
-border_x = 300
-border_y = 300
+# new_turtle.speed(15)
+# new_turtle.pensize(40)
+# border_x = 300
+# border_y = 300
+#
+# directions = [0, 90, 180, 270]
+# for _ in range(100000):
+#     new_turtle.color(random_color())
+#     new_turtle.forward(40)
+#     new_turtle.setheading(random.choice(directions))
+#
+#     x, y = new_turtle.position()
+#     if abs(x) > border_x or abs(y) > border_y:
+#         new_turtle.undo()
+#         new_turtle.setheading(new_turtle.heading() + 180)
+#
+# screen.mainloop()
 
-directions = [0, 90, 180, 270]
-for _ in range(100000):
-    new_turtle.color(random_color())
-    new_turtle.forward(40)
-    new_turtle.setheading(random.choice(directions))
+#
+# new_list = [i*i for i in range(1,11)]
+# print(new_list)
 
-    x, y = new_turtle.position()
-    if abs(x) > border_x or abs(y) > border_y:
-        new_turtle.undo()
-        new_turtle.setheading(new_turtle.heading() + 180)
 
-screen.mainloop()
+# def generate_password_lc():
+#     letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#     nums = "1234567890"
+#     symbols = "-+=!@#$%^&*"
+#     password_letters = [random.choice(letters) for _ in range(1, random.randint(0, 12))]
+#     password_numbers = [random.choice(nums) for _ in range(1, random.randint(3, 5))]
+#     password_symbols = [random.choice(symbols) for _ in range(1, random.randint(3, 5))]
+#     password_list = password_symbols + password_numbers + password_letters
+#     random.shuffle(password_list)
+#     password = ''.join(password_list)
+#     return password
+#
+#
+# print(generate_password_lc())
+
+# city_names = ['Paris', 'London', 'Rome', 'Berlin', 'Madrid']
+#
+# city_temps = {city: random.randint(20, 30) for city in city_names}
+# print(city_temps)
+#
+# above_25 = {city: temp for (city, temp) in city_temps.items() if temp >25}
+# print(above_25)
+
+#
+# numbers = {number:number*number for number in range(10, 21)}
+# print(numbers)
+
+#
+# city_names = ['Paris', 'London', 'Rome', 'Berlin', 'Madrid']
+#
+# def contains_n(p_city):
+#     for name in p_city:
+#         if 'n' in name:
+#             yield name
+#
+#
+# names = contains_n(city_names)
+# print(list(names))
+import requests
+
+parameters = {
+    "lat": 41.616756,
+    "lon": 41.636745,
+    "formatted": 0
+}
+
+
+response = requests.get("https://api.sunrise-sunset.org/json", params = parameters)
+response.raise_for_status()
+data = response.json()
+print(data['results']['sunrise'])
+print(data['results']['sunset'])

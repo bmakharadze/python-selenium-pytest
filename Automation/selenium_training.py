@@ -44,7 +44,7 @@ class SeleniumDemo:
         search_box = self.driver.find_element(By.XPATH, "//*[@name='q']")
         print("Search box is present: ", search_box.is_displayed())
         # Write in input
-        search_box.send_keys("Selenium WebDriver")
+        search_box.send_keys("Automation WebDriver")
         # Click submit
         search_box.submit()
         # Find element using class name

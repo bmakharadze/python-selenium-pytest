@@ -2,8 +2,8 @@ import time
 
 import pytest
 
-from Selenium.Amazon.enums.Price import Price
-from Selenium.Amazon.pages.HomePage import HomePage
+from Automation.Amazon.enums.Price import Price
+from Automation.Amazon.pages.HomePage import HomePage
 
 
 @pytest.mark.usefixtures("init_driver")

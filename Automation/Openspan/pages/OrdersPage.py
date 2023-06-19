@@ -2,7 +2,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 
-from Selenium.Openspan.base.BasePage import BasePage
+from Automation.Openspan.base.BasePage import BasePage
 
 
 class OrdersPage(BasePage):

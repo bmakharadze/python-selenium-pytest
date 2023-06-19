@@ -2,9 +2,9 @@ import time
 
 from selenium.webdriver.common.by import By
 
-from Selenium.Amazon.enums.TestData import TestData
-from Selenium.Amazon.base.BasePage import BasePage
-from Selenium.Amazon.pages.ProductsPage import ProductsPage
+from Automation.Amazon.enums.TestData import TestData
+from Automation.Amazon.base.BasePage import BasePage
+from Automation.Amazon.pages.ProductsPage import ProductsPage
 
 
 class HomePage(BasePage):

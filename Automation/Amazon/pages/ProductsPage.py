@@ -2,8 +2,8 @@ import logging
 
 from selenium.webdriver.common.by import By
 
-from Selenium.Amazon.base.BasePage import BasePage
-from Selenium.Amazon.pages.ProductPage import ProductPage
+from Automation.Amazon.base.BasePage import BasePage
+from Automation.Amazon.pages.ProductPage import ProductPage
 
 logging.basicConfig(level=logging.INFO)
 

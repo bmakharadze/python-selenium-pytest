@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 
-from Selenium.Openspan.base.BasePage import BasePage
-from Selenium.Openspan.enums.TestData import TestData
-from Selenium.Openspan.pages.HomePage import HomePage
+from Automation.Openspan.base.BasePage import BasePage
+from Automation.Openspan.enums.TestData import TestData
+from Automation.Openspan.pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):

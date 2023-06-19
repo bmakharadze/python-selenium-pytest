@@ -1,9 +1,9 @@
-from selenium.webdriver.common.by import By
 
-from Selenium.Openspan.base.BasePage import BasePage
-from Selenium.Openspan.pages.OrdersPage import OrdersPage
-from Selenium.Openspan.pages.ProductPage import ProductPage
-from Selenium.Openspan.pages.ProductsPage import ProductsPage
+from selenium.webdriver.common.by import By
+from Automation.Openspan.base.BasePage import BasePage
+from Automation.Openspan.pages.OrdersPage import OrdersPage
+from Automation.Openspan.pages.ProductPage import ProductPage
+from Automation.Openspan.pages.ProductsPage import ProductsPage
 
 
 class HomePage(BasePage):
