@@ -11,6 +11,9 @@ ${email_input}          xpath://*[@id="Email"]
 ${newsletter_checkbox}  //*[@id="Newsletter"]
 
 *** Keywords ***
+Is Register Page Opened
+    Element Should Be Visible    ${first_name_input}
+
 Click Male Gender
     Click Element    xpath://*[@id="gender-male"]
 

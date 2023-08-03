@@ -7,6 +7,9 @@ ${notebooks_btn}        //img[@alt="Picture for category Notebooks"]
 ${software_btn}         //img[@alt="Picture for category Software"]
 
 *** Keywords ***
+Is Computers Page Opened
+    Element Should Be Visible    ${desktops_btn}
+
 Click Desktops Button
     Click Element    ${desktops_btn}
 

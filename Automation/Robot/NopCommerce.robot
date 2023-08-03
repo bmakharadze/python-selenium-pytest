@@ -10,25 +10,32 @@ Variables       enums/DateOfBirthDay.py
 Variables       enums/DateOfBirthMonth.py
 Variables       enums/DateOfBirthYear.py
 
-
 *** Variables ***
 ${BROWSER}        Chrome
 ${URL}            https://demo.nopcommerce.com/
 ${CHROME_BINARY}  /Users/bekamakharadze/documents/selenium/chromedriver.exe
 
-*** Test Cases ***
-Login Test
+*** Keywords ***
+Launch Browser
     Open Browser        ${URL}    ${BROWSER}    executable_path=${CHROME_BINARY}
     Maximize Browser Window
+
+*** Test Cases ***
+Login Test
+    Launch Browser
+    Is Home Page Opened
     Click Home Page Login Button
+    Is Login Page Opened
     Input Login Email           becca@gmail.com
     Input Login Password        Test123
     Click Login Button
     Close Browser
 
 Register Test
-    Open Browser        ${URL}    ${BROWSER}    executable_path=${CHROME_BINARY}
+    Launch Browser
+    Is Home Page Opened
     Click Home Page Register Button
+    Is Register Page Opened
     Click Male Gender
     Input First Name            Becca
     Input Last Name             Mak
@@ -39,10 +46,13 @@ Register Test
     Select Newsletter Checkbox
 
 Order Test
-    Open Browser        ${URL}    ${BROWSER}    executable_path=${CHROME_BINARY}
-    Maximize Browser Window
+    Launch Browser
+    Is Home Page Opened
     Click Computers Button
+    Is Computers Page Opened
     Click Desktops Button
+    Is Desktop Page Opened
     Click Product Button        Digital Storm VANQUISH 3 Custom Performance PC
+    Is Peoduct Page Opened
     Click Add To Cart Button
-    Click Cart Buttn
+    Click Cart Button
