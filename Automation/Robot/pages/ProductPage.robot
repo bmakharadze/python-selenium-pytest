@@ -10,7 +10,8 @@ Is Peoduct Page Opened
     Element Should Be Visible    ${add_to_cart_btn}
 
 Click Add To Cart Button
-    Click Element       ${add_to_cart_btn}
+    [Arguments]     ${product_name}
+    Click Element       //*[@id=concat('add-to-cart-button-', '${product_name}')]
 
 Click Cart(Product) Button
     Wait Until Element Is Visible       ${cart_btn}
