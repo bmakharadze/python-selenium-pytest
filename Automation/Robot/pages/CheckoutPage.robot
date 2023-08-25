@@ -2,46 +2,54 @@
 Library     SeleniumLibrary
 
 *** Variables ***
-${remove_btn}           xpath://*[@class="remove-btn"]
-${discount_input}       xpath://*[@id="discountcouponcode""]
-${discount_btn}         xpath://*[@id="applydiscountcouponcode"]
-${gift_card_input}      xpath://*[@id="giftcardcouponcode"]
-${gift_card_btn}        xpath://*[@id="applygiftcardcouponcode"]
-${update_cart_btn}      xpath://*[@id="updatecart"]
-${continue_shop_btn}    xpath://*[@name="continueshopping"]
-${estimate_btn}         xpath://*[@id="open-estimate-shipping-popup"]
-${checkout_brn}         xpath://*[@id="checkout"]
-${agree_tos_btn}        xpath://*[@id="termsofservice"]
+${country_select}           //*[@id="BillingNewAddress_CountryId"]
+${city_input}               //*[@id="BillingNewAddress_City"]
+${address1_input}           //*[@id="BillingNewAddress_Address1"]
+${zip_input}                //*[@id="BillingNewAddress_ZipPostalCode"]
+${phone_input}              //*[@id="BillingNewAddress_PhoneNumber"]
+${continue_btn}             //*[@id="billing-buttons-container"]/button[4]
+
+${ground_radio}             //*[@id="shippingoption_0"]
+${next_day_radio}           //*[@id="shippingoption_1"]
+${2nd_day_radio}            //*[@id="shippingoption_2"]
+${shipping_continue_btn}    //*[@id="shipping-method-buttons-container"]/button
+${back_btn}                 //*[@id="shipping-method-buttons-container"]/p/a
 
 *** Keywords ***
-Click Update Shopping Cart Button
-    Click Element    ${update_cart_btn}
+Select Country
+    Click Element    ${country_select}
 
-Click Continue Shopping Button
-    Click Element    ${continue_shop_btn}
+City Input
+    [Arguments]     ${city}
+    Input Text      ${city_input}       ${city}
 
-Click Estimate Shipping Button
-    Click Element    ${estimate_btn}
+Address1 Input
+    [Arguments]     ${address1}
+    Input Text      ${address1_input}       ${address1}
 
-Click Checkout Button
-    Click Element    ${checkout_brn}
+Zip Input
+    [Arguments]     ${zip_code}
+    Input Text      ${zip_input}       ${zip_code}
 
-Click Remove Button
-    Click Element    ${remove_btn}
+Phone Input
+    [Arguments]     ${phone_number}
+    Input Text      ${phone_input}       ${phone_number}
 
-Input Discount Code
-    [Arguments]     ${discount_code}
-    Input Text      ${discount_input}    ${discount_code}
+Click Continue Button
+    Click Element    ${continue_btn}
 
-Click Add Discount Code Button
-    Click Element    ${discount_btn}
+Click Ground Method Radio
+    Click Element           ${ground_radio}
 
-Input Gift Card
-    [Arguments]     ${gift_card}
-    Input Text      ${gift_card_input}    ${gift_card}
+Click Next Day Method Radio
+    Click Element           ${next_day_radio}
 
-Click Add Gift Card Button
-    Click Element    ${gift_card_btn}
+Click 2nd Day Method Radio
+    Click Element           ${2nd_day_radio}
 
-Click Agree To TOS Button
-    Click Element    ${agree_tos_btn}
+Click Back Button (Shipping Method)
+    Click Element           ${back_btn}
+
+Click Continue Button (Shipping Method)
+    Click Element           ${shipping_continue_btn}
+

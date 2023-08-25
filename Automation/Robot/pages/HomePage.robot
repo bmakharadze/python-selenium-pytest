@@ -28,6 +28,6 @@ Click Cart Button
 Click Home Page Button
     Click Element    ${home_btn}
 
-Click Prodiuct from Home Page
+Click Product from Home Page
     [Arguments]      ${product_name}
     Click Element    xpath://*[contains(text(), '${product_name}')][1]

@@ -10,11 +10,11 @@ ${login_btn}        xpath://*[contains(text(), 'Log in')][1]
 Is Login Page Opened
     Element Should Be Visible    ${email_input}
 
-Input Login Email
+Login Email Input
     [Arguments]     ${email}
     Input Text      ${email_input}    ${email}
 
-Input Login Password
+Login Password Input
     [Arguments]     ${password}
     Input Text      ${password_input}    ${password}
 

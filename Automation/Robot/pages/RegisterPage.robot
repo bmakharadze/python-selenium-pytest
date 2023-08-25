@@ -17,11 +17,11 @@ Is Register Page Opened
 Click Male Gender
     Click Element    xpath://*[@id="gender-male"]
 
-Input First Name
+First Name Input
     [Arguments]    ${first_name}
     Input Text    ${first_name_input}    ${first_name}
 
-Input Last Name
+Last Name Input
     [Arguments]    ${last_name}
     Input Text    ${last_name_input}     ${last_name}
 
@@ -37,7 +37,7 @@ Select Date Of Birth Year
     [Arguments]    ${year_value}
     Select From List By Value    ${birth_year_select}    ${year_value}
 
-Input Register Email
+Register Email Input
     [Arguments]     ${email}
     Input Text      ${email_input}      ${email}
 
